@@ -3,39 +3,49 @@
 
 using namespace std;
 
+
 class Person {
-public:
-	int age;
-	string name;
-	string surName;
-	void Print() {
-		cout << "Name: " << name << "\nSurname: " << surName << "\nAge: " << age << endl;
-	}
-	Person() {
-		cout << "Person constrictor " << endl;
-	}
-// Get Set
-// Constructor
 private:
-protected:
+	short age;
+	string firstName;
+	string lastName;
+
+public:
+	short GetAge() {
+		return age;
+	}
+
+	void SetAge(short age) {
+		if (age <= this->age || this->age >= 120) {
+			cout << "Wrong input." << endl;
+		}
+		else {
+			this->age = age;
+		}
+	}
+
+	void CreatePerson() {
+		cout << "Name: ";
+		cin >> firstName;
+		cout << "Last name: ";
+		cin >> lastName;
+		cout << "Age: ";
+		cin >> age;
+	}
+
+	void Print() {
+		cout << "Name: " << firstName << "\nLaste name: " << lastName << "\nAge: " << age << endl;
+	}
 };
 
 int main() {
 
-#pragma region Example_1
 	Person firstPerson;
-	cout << "Name: ";
-	cin >> firstPerson.name;
-	cout << "Surname: ";
-	cin >> firstPerson.surName;
-	cout << "Age: ";
-	cin >> firstPerson.age;
-	//cout << "Name: " << firstPerson.name << "\nSurname: " << firstPerson.surName << "\nAge: " << firstPerson.age << endl;
-	firstPerson.Print();
-#pragma endregion
-
-	
-
+	firstPerson.CreatePerson();
+	/*firstPerson.Print();*/
+	cout << "Age: " << firstPerson.GetAge() << endl;
+	firstPerson.SetAge(57);
+	cout << "Age: " << firstPerson.GetAge() << endl;
 	system("pause");
 	return 0;
 }
