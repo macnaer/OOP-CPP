@@ -26,7 +26,7 @@ public:
 
 	void ShowCarInfo() {
 		cout << "Vendor: " << this->vendor << "\nModel: " << this->model << "\nEngine: " << this->engine
-			<< "\nPrice: " << this->price << "\nCar Number: " << this->CarsCount << endl;
+			<< "\nPrice: " << this->price << "\nCars count: " << CarsCount  << endl;
 	}
 };
 
@@ -44,13 +44,13 @@ int main() {
 
 	cout << "Car 1=========== " << endl;
 	cout << "===========================" << endl;
-	//car1.ChangePrice(car1, 20000);
-	CarFactory::ChangePrice(car1, 23000);
+	car1.ChangePrice(car1, 20000);
+	//CarFactory::ChangePrice(car1, 23000);
 	car1.ShowCarInfo();
 
 
-	cout << "Car 2=========== " << endl;
-	car2.ShowCarInfo();
+	//cout << "Car 2=========== " << endl;
+	//car2.ShowCarInfo();
 
 	system("pause");
 	return 0;
