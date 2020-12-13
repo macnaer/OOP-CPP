@@ -4,18 +4,12 @@
 using namespace std;
 
 class Train {
-public:
-	void ShowTrainInfo() {
-		for (int i = 0; i < SIZE; i++) {
-			vagons[i].GetInfo();
-		}
-	}
-
 private:
 
 	class Vagon {
 	public:
-		Vagon(string type, int seatCount) {
+
+		void CreateVagon(string type, int seatCount) {
 			this->type = type;
 			this->seatCount = seatCount;
 		}
@@ -29,16 +23,42 @@ private:
 		int seatCount;
 	};
 
-	static const int SIZE = 3;
-	Vagon vagons[SIZE]{
-		Vagon("Coupe", 30),
-		Vagon("Plackart", 40),
-		Vagon("Lux", 25)
-	};
+	int SIZE;
+public:
+	Vagon* vagons;
+	void ShowTrainInfo() {
+		for (int i = 0; i < SIZE; i++) {
+			vagons[i].GetInfo();
+		}
+	}
+	Train() {
+		cout << "Enter train size: ";
+		cin >> this->SIZE;
+		this->vagons = new Vagon[this->SIZE];
+		FillVagons();
+	}
+
+	void FillVagons() {
+
+		string vagonType;
+		int seat = 0;
+		for (int i = 0; i < this->SIZE; i++) {
+			cout << "vagonType ";
+			cin >> vagonType;
+			cout << "seat ";
+			cin >> seat;
+			this->vagons[i].CreateVagon(vagonType, seat);
+		}
+	}
+
+
+	~Train() {
+		delete[] vagons;
+	}
 };
 
 int main() {
-
+	
 	Train train;
 	train.ShowTrainInfo();
 
