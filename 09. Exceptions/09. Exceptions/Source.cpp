@@ -5,35 +5,54 @@
 
 using namespace std;
 
+void Connect(int connect) {
 
-int main() {
-	srand(unsigned(time(NULL)));
+    if (connect == 1) {
+        throw exception("404 Not Found");
+    }
+    else if (connect == 2) {
+        throw exception("500 Internal Server Error");
+    }
+    else if (connect == 3) {
+        cout << "Connected " << endl;
+    }
+    else {
+        throw exception("Some exception");
+    }
+}
 
-	string path = "file.txt";
-	ifstream stream;
-	stream.exceptions(ifstream::badbit | ifstream::failbit);
+using namespace std;
 
-	try
-	{
-		stream.open(path);
+int main()
+{
 
-	}
-	catch (const ifstream::failure & ex)
-	{
-		cout << ex.what() << endl;
-		cout << ex.code() << endl;
-	}
-	
+    string path = "file.txt";
+    ifstream stream;
+    stream.exceptions(ifstream::badbit | ifstream::failbit);
+
+    try
+    {
+        stream.open(path);
+
+    }
+    catch (const ifstream::failure& ex)
+    {
+        cout << ex.what() << endl;
+        cout << ex.code() << endl;
+    }
+    //srand(unsigned(time(NULL)));
+
+    //int connect = rand() % 5 + 1;
 
 
-	try
-	{
-
-	}
-	catch (const exception &ex)
-	{
-		cout << ex.what() << endl;
-	}
-	system("pause");
-	return 0;
+    //try
+    //{
+    //    Connect(connect);
+    //}
+    //catch (const exception& ex) {
+    //    // cout << "catch " << ex <<endl;
+    //    cout << ex.what() << endl;
+    //}
+  
+    return 0;
 }
