@@ -1,0 +1,3 @@
+﻿  Classic.cpp
+C:\Users\k2\Desktop\Lessons\OOP\Design Patterns\03. FabricMethod\03. FabricMethod\Classic.cpp(6,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  03. FabricMethod.vcxproj -> C:\Users\k2\Desktop\Lessons\OOP\Design Patterns\03. FabricMethod\Debug\03. FabricMethod.exe
